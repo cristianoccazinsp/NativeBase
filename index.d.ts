@@ -290,10 +290,10 @@ declare module "native-base" {
 			/**
              * Array of data chunks to render iteratively.
              */
-			dataArray?: Array<any>;
-			renderItem?: (
-				rowData: any,
-				rowID: string | number,
+      dataArray?: Array<any>;
+      renderItem?: (	
+				item: any,	
+				index: string | number,	
 			) => React.ReactElement<any>;
 			renderRow?: (
 				rowData: any,
@@ -304,7 +304,8 @@ declare module "native-base" {
 			dataSource?: ReactNative.ListViewDataSource;
 			disableLeftSwipe?: boolean;
 			disableRightSwipe?: boolean;
-			rightOpenValue?: number;
+      rightOpenValue?: number;
+      keyExtractor?: (item, index: number) => string;
 			leftOpenValue?: number;
 			renderRightHiddenRow?: (
 				rowData: any,
@@ -842,7 +843,7 @@ declare module "native-base" {
 			style?: RnViewStyleProp;
 		}
 
-		interface Image extends ReactNative.TextProps, Testable { }
+		interface Image extends ReactNative.ImageProps, Testable { }
 
 		interface Segment extends ReactNative.TextProps, Testable { }
 
