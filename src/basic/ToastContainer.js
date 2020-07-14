@@ -11,7 +11,6 @@ import { Button } from './Button';
 import { Toast } from './Toast';
 import { Root } from './Root';
 
-
 const POSITION = {
   ABSOLUTE: 'absolute',
   BOTTOM: 'bottom',
@@ -21,7 +20,7 @@ const POSITION = {
 class ToastContainer extends Component {
   static show({ ...config }) {
     const inst = Root.getToastInstance();
-    if(inst){
+    if (inst) {
       inst._root.showToast({ config });
     }
   }
@@ -129,7 +128,8 @@ class ToastContainer extends Component {
     // Fade the toast in now.
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 200
+      duration: 200,
+      useNativeDriver: false
     }).start();
   }
   closeModal(reason) {
@@ -145,7 +145,8 @@ class ToastContainer extends Component {
     clearTimeout(this.closeTimeout);
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 200
+      duration: 200,
+      useNativeDriver: false
     }).start(this.closeModal.bind(this, reason));
   }
 
