@@ -160,7 +160,7 @@ it("renders ListItem icon", () => {
             <Text>Airplane Mode</Text>
           </Body>
           <Right>
-            <Switch value={false} onTintColor="#50B948" />
+            <Switch value={false} trackColor={{ false: "#767577", true: "#50B948" }} />
           </Right>
         </ListItem>
         <ListItem icon>
