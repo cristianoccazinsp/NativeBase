@@ -125,7 +125,9 @@ class DeckSwiper extends Component {
           friction: 7,
           useNativeDriver: false
         }).start();
-        Animated.event([null, { dx: this.state.pan.x }])(e, gestureState);
+        Animated.event([null, { dx: this.state.pan.x }], {
+          useNativeDriver: false
+        })(e, gestureState);
       },
 
       onPanResponderRelease: (e, { vx, vy }) => {
