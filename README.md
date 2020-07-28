@@ -1,5 +1,16 @@
 # NativeBase [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
 
+
+Native-Base internal fork (use if you want) with some bug fixes and changes. Some other components (e.g., Footer, Content, Item) were also so broken that were vendored and the ones from this project no longer used.
+I would personally not recommend using this library anymore.
+
+
+Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#small-optimizations-rebased2"
+
+DatePicker removed, use https://github.com/react-native-community/datetimepicker
+
+
+
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)
 
 Essential cross-platform UI components for React Native

@@ -134,10 +134,6 @@ export default {
   // Container
   containerBgColor: '#fff',
 
-  // Date Picker
-  datePickerTextColor: '#000',
-  datePickerBg: 'transparent',
-
   // FAB
   fabWidth: 56,
 
