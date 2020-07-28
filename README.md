@@ -9,6 +9,7 @@ Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#s
 
 DatePicker removed, use https://github.com/react-native-community/datetimepicker
 
+New Req: "@react-native-community/picker": "^1.6.5",
 
 
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)

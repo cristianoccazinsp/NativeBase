@@ -30,7 +30,6 @@
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
-    "@react-native-community/picker": "^1.6.5",
     "blueimp-md5": "^2.5.0",
     "clamp": "^1.0.1",
     "color": "~3.1.2",
@@ -70,6 +69,7 @@
     "pretty-quick": "^1.11.1",
     "react": "16.4.1",
     "react-native": "^0.63.0",
+    "@react-native-community/picker": "^1.6.5",
     "react-test-renderer": "16.4.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
@@ -79,7 +79,8 @@
   "optionalDependencies": {},
   "peerDependencies": {
     "react": ">=16.4.1",
-    "react-native": ">=0.63.0"
+    "react-native": ">=0.63.0",
+    "@react-native-community/picker": "^1.6.5"
   },
   "husky": {
     "hooks": {
