@@ -26,7 +26,7 @@
       "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
     ]
   },
-  "version": "2.15.0",
+  "version": "2.16.0",
   "license": "Apache-2.0",
   "private": false,
   "dependencies": {
@@ -69,7 +69,7 @@
     "pretty-quick": "^1.11.1",
     "react": "16.13.1",
     "react-native": "^0.62.2",
-    "@react-native-community/picker": "^1.7.1",
+    "@react-native-community/picker": "^1.8.0",
     "react-test-renderer": "16.13.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
@@ -80,7 +80,7 @@
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-native": ">=0.62.0",
-    "@react-native-community/picker": "^1.7.1"
+    "@react-native-community/picker": "^1.8.0"
   },
   "husky": {
     "hooks": {
