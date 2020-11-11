@@ -1,15 +1,15 @@
-# NativeBase [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+# NativeBase
 
+DO NOT USE THIS LIBRARY IF YOU'RE LOOKING FOR A UI FRAMEWORK, THERE ARE BETTER ALTERNATIVES.
 
-Native-Base internal fork (use if you want) with some bug fixes and changes. Some other components (e.g., Footer, Content, Item) were also so broken that were vendored and the ones from this project no longer used.
-I would personally not recommend using this library anymore.
+Native-Base internal fork (use if you want) with some bug fixes and changes.
 
+Some components (e.g., HEADER, Footer, Content, Item) that they should not be used from this library. They were vendored and fixed internally with better implementations, but they would conflict with this library so the changes were not merged here.
 
-Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#small-optimizations-rebased2"
+Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#internal"
 
 DatePicker removed, use https://github.com/react-native-community/datetimepicker
-
-New Req: "@react-native-community/picker": "^1.8.0",
+Picker removed, build your own with modals and what's available or use "@react-native-community/picker"
 
 
 [![NPM](https://nodei.co/npm/native-base.png?downloads=true)](https://nodei.co/npm/native-base/)

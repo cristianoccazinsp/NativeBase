@@ -69,7 +69,6 @@
     "pretty-quick": "^1.11.1",
     "react": "16.13.1",
     "react-native": "^0.62.2",
-    "@react-native-community/picker": "^1.8.0",
     "react-test-renderer": "16.13.1"
   },
   "gitHead": "5bbeacc403ba97622703699132c55d8359344004",
@@ -79,8 +78,7 @@
   "optionalDependencies": {},
   "peerDependencies": {
     "react": ">=16.13.1",
-    "react-native": ">=0.62.0",
-    "@react-native-community/picker": "^1.8.0"
+    "react-native": ">=0.62.0"
   },
   "husky": {
     "hooks": {
