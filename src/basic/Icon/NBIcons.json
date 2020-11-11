@@ -125,8 +125,8 @@
       "active": "md-arrow-back"
     },
     "ios": {
-      "default": "ios-arrow-back",
-      "active": "ios-arrow-back"
+      "default": "ios-chevron-back",
+      "active": "ios-chevron-back"
     }
   },
   "arrow-down": {
@@ -135,8 +135,8 @@
       "active": "md-arrow-down"
     },
     "ios": {
-      "default": "ios-arrow-down",
-      "active": "ios-arrow-down"
+      "default": "ios-chevron-down",
+      "active": "ios-chevron-down"
     }
   },
   "arrow-dropdown": {
@@ -225,8 +225,8 @@
       "active": "md-arrow-forward"
     },
     "ios": {
-      "default": "ios-arrow-forward",
-      "active": "ios-arrow-forward"
+      "default": "ios-chevron-forward",
+      "active": "ios-chevron-forward"
     }
   },
   "arrow-round-back": {
@@ -275,8 +275,8 @@
       "active": "md-arrow-up"
     },
     "ios": {
-      "default": "ios-arrow-up",
-      "active": "ios-arrow-up"
+      "default": "ios-chevron-up",
+      "active": "ios-chevron-up"
     }
   },
   "at": {
