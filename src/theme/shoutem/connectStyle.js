@@ -67,7 +67,7 @@ function isStyleVariant(propertyName) {
  * @returns {boolean} True if the style property represents a child style, false otherwise.
  */
 function isChildStyle(propertyName) {
-  return /(^[^\.].*\.)|^\*$/.test(propertyName);
+  return /(^[^.].*\.)|^\*$/.test(propertyName);
 }
 
 function getConcreteStyle(style) {
@@ -204,7 +204,7 @@ export default (
           return [concreteStyle, ...style];
         }
 
-        if (typeof style == "number" || typeof style == "object") {
+        if (typeof style === "number" || typeof style === "object") {
           return [concreteStyle, style];
         }
 
