@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import IconNB from 'react-native-vector-icons/Ionicons';
-import { connectStyle } from 'native-base-shoutem-theme';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 import { PLATFORM } from '../theme/variables/commonColor';

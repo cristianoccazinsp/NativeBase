@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import { Keyboard, Platform, Animated, ViewPropTypes } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import { PLATFORM } from '../theme/variables/commonColor';
 

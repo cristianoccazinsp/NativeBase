@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unneeded-ternary */
-import { connectStyle } from 'native-base-shoutem-theme';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { View, StatusBar, ViewPropTypes, SafeAreaView } from 'react-native';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import getStyle from '../utils/getStyle';
 import variable from '../theme/variables/platform';

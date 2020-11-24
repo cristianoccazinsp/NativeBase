@@ -1,7 +1,7 @@
-import { StyleProvider, connectStyle } from 'native-base-shoutem-theme';
 import { keys } from 'lodash';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
+import { StyleProvider, connectStyle, clearThemeCache } from './theme/shoutem';
 import setDefaultThemeStyle from './init';
 import getTheme from './theme/components';
 import variables from './theme/variables/platform';
@@ -64,6 +64,7 @@ export {
   variables,
   StyleProvider,
   connectStyle,
+  clearThemeCache,
   Drawer,
   Button,
   IconNB,

@@ -6,8 +6,8 @@ import {
   TouchableNativeFeedback,
   View
 } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 

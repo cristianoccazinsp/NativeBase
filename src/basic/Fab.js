@@ -8,8 +8,8 @@ import {
   StyleSheet
 } from 'react-native';
 import { remove, merge, clone } from 'lodash';
-import { connectStyle } from 'native-base-shoutem-theme';
 
+import { connectStyle } from '../theme/shoutem';
 import variables from '../theme/variables/platform';
 import { PLATFORM } from '../theme/variables/commonColor';
 import computeProps from '../utils/computeProps';

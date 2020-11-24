@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import { isEqual } from 'lodash';
-import { connectStyle, StyleProvider } from 'native-base-shoutem-theme';
+
+import { connectStyle } from '../../theme/shoutem';
 import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
 import variable from './../../theme/variables/platform';
 import { TabHeading } from '../TabHeading';
 import { Text } from '../Text';
-import { TabContainer } from '../TabContainer';
 import { ViewPropTypes } from '../../utils';
 const Button = require('./Button');
 const ReactNative = require('react-native');
@@ -204,7 +204,7 @@ const ScrollableTabBar = createReactClass({
         </TabHeading>
       </Button>
     );
-    
+
   },
 
   measureTab(page, event) {

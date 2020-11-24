@@ -1,7 +1,7 @@
-import { connectStyle } from 'native-base-shoutem-theme';
 import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class List extends Component {

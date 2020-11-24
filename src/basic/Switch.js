@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch as SwitchNB } from 'react-native';
-import { connectStyle } from 'native-base-shoutem-theme';
 
+import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Switch extends Component {
