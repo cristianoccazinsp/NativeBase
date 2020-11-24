@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { get } from 'lodash';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -19,104 +18,41 @@ import Zocial from 'react-native-vector-icons/Zocial';
 import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
+
+const ICON_MAP = {
+  'AntDesign': AntDesign,
+  'Entypo': Entypo,
+  'EvilIcons': EvilIcons,
+  'Feather': Feather,
+  'FontAwesome': FontAwesome,
+  'FontAwesome5': FontAwesome5,
+  'Fontisto': Fontisto,
+  'Foundation': Foundation,
+  'Ionicons': Ionicons,
+  'MaterialCommunityIcons': MaterialCommunityIcons,
+  'MaterialIcons': MaterialIcons,
+  'Octicons': Octicons,
+  'SimpleLineIcons': SimpleLineIcons,
+  'Zocial': Zocial
+}
+
+const DEFAULT_ICON = Ionicons;
+
+
 class IconNB extends React.PureComponent {
   static contextTypes = {
     theme: PropTypes.object
   };
 
-  constructor(props) {
-    super(props);
-    this.setIcon(props.type);
-  }
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillUpdate(nextProps) {
-    if (nextProps.type && this.props.type !== nextProps.type) {
-      this.setIcon(nextProps.type);
-    }
-  }
-
-  setRoot(c) {
-    this._root = c;
-  }
-
-  setIcon(iconType) {
-    if (iconType === undefined && get(this, 'context.theme')) {
-      // eslint-disable-next-line
-      iconType = this.context.theme['@@shoutem.theme/themeStyle'].variables
-        .iconFamily;
-    }
-    switch (iconType) {
-      case 'AntDesign':
-        this.Icon = AntDesign;
-        break;
-      case 'Entypo':
-        this.Icon = Entypo;
-        break;
-      case 'EvilIcons':
-        this.Icon = EvilIcons;
-        break;
-      case 'Feather':
-        this.Icon = Feather;
-        break;
-      case 'FontAwesome':
-        this.Icon = FontAwesome;
-        break;
-      case 'FontAwesome5':
-        this.Icon = FontAwesome5;
-        break;
-      case 'Fontisto':
-        this.Icon = Fontisto;
-        break;
-      case 'Foundation':
-        this.Icon = Foundation;
-        break;
-      case 'Ionicons':
-        this.Icon = Ionicons;
-        break;
-      case 'MaterialCommunityIcons':
-        this.Icon = MaterialCommunityIcons;
-        break;
-      case 'MaterialIcons':
-        this.Icon = MaterialIcons;
-        break;
-      case 'Octicons':
-        this.Icon = Octicons;
-        break;
-      case 'SimpleLineIcons':
-        this.Icon = SimpleLineIcons;
-        break;
-      case 'Zocial':
-        this.Icon = Zocial;
-        break;
-      default:
-        this.Icon = Ionicons;
-    }
-  }
-
   render() {
-    return <this.Icon ref={this.setRoot} {...this.props} />;
+    let iconType = this.props.type || (this.context.theme && this.context.theme['@@shoutem.theme/themeStyle'].variables
+    .iconFamily);
+
+    const Icon = ICON_MAP[iconType] || DEFAULT_ICON;
+    return <Icon {...this.props} />;
   }
 }
 
-IconNB.propTypes = {
-  type: PropTypes.oneOf([
-    'AntDesign',
-    'Entypo',
-    'EvilIcons',
-    'Feather',
-    'FontAwesome',
-    'FontAwesome5',
-    'Fontisto',
-    'Foundation',
-    'Ionicons',
-    'MaterialCommunityIcons',
-    'MaterialIcons',
-    'Octicons',
-    'SimpleLineIcons',
-    'Zocial'
-  ])
-};
 
 const StyledIconNB = connectStyle(
   'NativeBase.IconNB',

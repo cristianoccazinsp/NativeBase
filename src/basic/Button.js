@@ -11,10 +11,13 @@ import {
 
 import { connectStyle } from '../theme/shoutem';
 import variable from '../theme/variables/platform';
-import { PLATFORM } from '../theme/variables/commonColor';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 import { Text } from './Text';
+
+
+const IS_IOS = Platform.OS === 'ios';
+const IS_WEB = Platform.OS == 'web';
 
 
 class Button extends React.PureComponent {
@@ -57,7 +60,7 @@ class Button extends React.PureComponent {
       : variable;
 
     const children =
-      Platform.OS === PLATFORM.IOS || !variables.buttonUppercaseAndroidText
+      IS_IOS || !variables.buttonUppercaseAndroidText
         ? this.props.children
         : React.Children.map(this.props.children, child =>
             child && child.type === Text
@@ -71,8 +74,8 @@ class Button extends React.PureComponent {
     const rootProps = this.prepareRootProps();
 
     if (
-      Platform.OS === PLATFORM.IOS ||
-      Platform.OS === PLATFORM.WEB ||
+      IS_IOS ||
+      IS_WEB ||
       variables.androidRipple === false ||
       Platform.Version < 21
     ) {

@@ -8,11 +8,14 @@ import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import computeProps from '../utils/computeProps';
 
-import NativeBaseComponent from './Base/NativeBaseComponent';
 
 const GRAVATAR_URI = 'https://www.gravatar.com/avatar/';
 
-class Gravatar extends NativeBaseComponent {
+class Gravatar extends React.Component {
+  static contextTypes = {
+    theme: PropTypes.object
+  };
+
   getInitialStyle() {
     return {
       gravatar: {

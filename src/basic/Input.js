@@ -6,9 +6,12 @@ import { connectStyle } from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
-import NativeBaseComponent from './Base/NativeBaseComponent';
 
-class Input extends NativeBaseComponent {
+class Input extends React.Component {
+  static contextTypes = {
+    theme: PropTypes.object
+  };
+
   render() {
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
