@@ -1,7 +1,7 @@
 // @flow
 
 import color from 'color';
-import { Platform, Dimensions, PixelRatio } from 'react-native';
+import { Platform, Dimensions, StyleSheet } from 'react-native';
 
 import { PLATFORM } from './commonColor';
 
@@ -301,7 +301,8 @@ export default {
 
   // Other
   borderRadiusBase: platform === PLATFORM.IOS ? 5 : 2,
-  borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
+  //borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
+  borderWidth: StyleSheet.hairlineWidth,
   contentPadding: 10,
   dropdownLinkColor: '#414142',
   inputLineHeight: 24,
