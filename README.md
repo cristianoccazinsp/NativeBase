@@ -2,7 +2,7 @@
 
 DO NOT USE THIS LIBRARY IF YOU'RE LOOKING FOR A UI FRAMEWORK, THERE ARE BETTER ALTERNATIVES.
 
-Native-Base internal fork (use if you want) with some bug fixes and changes.
+Native-Base internal fork (use if you want) with some bug fixes and changes, and removed some useless boilterplate for our own usage.
 
 Some components (e.g., HEADER, Footer, Content, Item) that they should not be used from this library. They were vendored and fixed internally with better implementations, but they would conflict with this library so the changes were not merged here.
 
@@ -11,6 +11,7 @@ Will require an unlink + link call when icons are upgraded
 Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#internal"
 
 DatePicker removed, use https://github.com/react-native-community/datetimepicker
+
 Picker removed, build your own with modals and what's available or use "@react-native-community/picker"
 
 

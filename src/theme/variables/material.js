@@ -7,14 +7,17 @@ import { PLATFORM } from './commonColor';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
+const deviceMax = Math.max(deviceHeight, deviceWidth);
+
 const platform = Platform.OS;
 const platformStyle = PLATFORM.MATERIAL;
+
+// iPhone X: starts at 812
+// iPhone 11: 896
+// iPhone 12: 844
+// iPhone 12 pro max: 926
 const isIphoneX =
-  platform === PLATFORM.IOS &&
-  (deviceHeight === 812 ||
-    deviceWidth === 812 ||
-    deviceHeight === 896 ||
-    deviceWidth === 896);
+platform === "ios" && (deviceMax >= 812 && deviceMax < 1024);
 
 export default {
   platformStyle,

@@ -9,6 +9,9 @@ const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const deviceMax = Math.max(deviceHeight, deviceWidth);
 
+const platform = Platform.OS;
+const platformStyle = undefined;
+
 // iPhone X: starts at 812
 // iPhone 11: 896
 // iPhone 12: 844
