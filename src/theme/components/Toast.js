@@ -16,6 +16,9 @@ export default (variables /* : * */ = variable) => {
     '.success': {
       backgroundColor: variables.brandSuccess
     },
+    ".info": {
+      backgroundColor: variables.brandInfo
+    },
     backgroundColor: 'rgba(0,0,0,0.8)',
     borderRadius: platform === PLATFORM.IOS ? 5 : 0,
     flexDirection: 'row',
