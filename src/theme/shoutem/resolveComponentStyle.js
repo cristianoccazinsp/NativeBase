@@ -1,5 +1,5 @@
-import _ from "lodash";
-import customMerge from "./customMerge";
+//import _ from 'lodash';
+import customMerge from './customMerge';
 
 /**
  * Matches any style properties that represent component style variants.
@@ -10,9 +10,9 @@ import customMerge from "./customMerge";
  * @param propertyName The style property name.
  * @returns {boolean} True if the style property represents a component variant, false otherwise.
  */
-function isStyleVariant(propertyName) {
-  return /^\./.test(propertyName);
-}
+// function isStyleVariant(propertyName) {
+//   return /^\./.test(propertyName);
+// }
 
 /**
  * Matches any style properties that represent style rules that target the
@@ -26,9 +26,9 @@ function isStyleVariant(propertyName) {
  * @param propertyName The style property name.
  * @returns {boolean} True if the style property represents a child style, false otherwise.
  */
-function isChildStyle(propertyName) {
-  return /(^[^\.].*\.)|^\*$/.test(propertyName);
-}
+// function isChildStyle(propertyName) {
+//   return /(^[^\.].*\.)|^\*$/.test(propertyName);
+// }
 
 /**
  * Splits the style into its parts:
@@ -39,26 +39,26 @@ function isChildStyle(propertyName) {
  * @param style The style to split.
  * @returns {*} An object with the componentStyle, styleVariants, and childrenStyle keys.
  */
-function splitStyle(style) {
-  return _.reduce(
-    style,
-    (result, value, key) => {
-      let styleSection = result.componentStyle;
-      if (isStyleVariant(key)) {
-        styleSection = result.styleVariants;
-      } else if (isChildStyle(key)) {
-        styleSection = result.childrenStyle;
-      }
-      styleSection[key] = value;
-      return result;
-    },
-    {
-      componentStyle: {},
-      styleVariants: {},
-      childrenStyle: {}
-    }
-  );
-}
+// function splitStyle(style) {
+//   return _.reduce(
+//     style,
+//     (result, value, key) => {
+//       let styleSection = result.componentStyle;
+//       if (isStyleVariant(key)) {
+//         styleSection = result.styleVariants;
+//       } else if (isChildStyle(key)) {
+//         styleSection = result.childrenStyle;
+//       }
+//       styleSection[key] = value;
+//       return result;
+//     },
+//     {
+//       componentStyle: {},
+//       styleVariants: {},
+//       childrenStyle: {},
+//     },
+//   );
+// }
 
 /**
  * Resolves the final component style by merging all of the styles that can be
@@ -88,7 +88,7 @@ export function resolveComponentStyle(
   styleNames = [],
   themeStyle = {},
   parentStyle = {},
-  themeCache
+  themeCache,
 ) {
   // const mergedStyle = _.merge({},
   //   themeStyle,
@@ -107,7 +107,7 @@ export function resolveComponentStyle(
   styleNames.forEach((sn, index) => {
     mergedStyle = customMerge(
       mergedStyle,
-      parentStyle[`${componentName}${sn}`]
+      parentStyle[`${componentName}${sn}`],
     );
   });
 
@@ -132,7 +132,7 @@ export function resolveComponentStyle(
   styleNames.forEach((sn, index) => {
     resolvedStyle = customMerge(
       resolvedStyle,
-      parentStyle[`${componentName}${sn}`]
+      parentStyle[`${componentName}${sn}`],
     );
   });
 

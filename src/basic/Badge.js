@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import {View, ViewPropTypes} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Badge extends Component {
   render() {
     return (
-      <View ref={c => (this._root = c)} {...this.props}>
+      <View ref={(c) => (this._root = c)} {...this.props}>
         {this.props.children}
       </View>
     );
@@ -20,12 +20,14 @@ Badge.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
-const StyledBadge = connectStyle('NativeBase.Badge', {}, mapPropsToStyleNames)(
-  Badge
-);
+const StyledBadge = connectStyle(
+  'NativeBase.Badge',
+  {},
+  mapPropsToStyleNames,
+)(Badge);
 
-export { StyledBadge as Badge };
+export {StyledBadge as Badge};

@@ -1,6 +1,6 @@
-import React, { Children } from 'react';
+import React, {Children} from 'react';
 import PropTypes from 'prop-types';
-import Theme, { ThemeShape } from './Theme';
+import Theme, {ThemeShape} from './Theme';
 
 /**
  *  Provides a theme to child components trough context.
@@ -45,7 +45,7 @@ export default class StyleProvider extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const {children} = this.props;
 
     return Children.only(children);
   }

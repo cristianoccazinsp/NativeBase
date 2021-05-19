@@ -1,9 +1,9 @@
 // @flow
 
 import color from 'color';
-import { Platform, Dimensions, StyleSheet } from 'react-native';
+import {Platform, Dimensions, StyleSheet} from 'react-native';
 
-import { PLATFORM } from './commonColor';
+import {PLATFORM} from './commonColor';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -16,8 +16,7 @@ const platformStyle = undefined;
 // iPhone 11: 896
 // iPhone 12: 844
 // iPhone 12 pro max: 926
-const isIphoneX =
-platform === "ios" && (deviceMax >= 812 && deviceMax < 1024);
+const isIphoneX = platform === 'ios' && deviceMax >= 812 && deviceMax < 1024;
 
 export default {
   platformStyle,
@@ -206,14 +205,10 @@ export default {
   toolbarDefaultBorder: platform === PLATFORM.IOS ? '#a7a6ab' : '#3F51B5',
   iosStatusbar: platform === PLATFORM.IOS ? 'dark-content' : 'light-content',
   get statusBarColor() {
-    return color(this.toolbarDefaultBg)
-      .darken(0.2)
-      .hex();
+    return color(this.toolbarDefaultBg).darken(0.2).hex();
   },
   get darkenHeader() {
-    return color(this.tabBgColor)
-      .darken(0.03)
-      .hex();
+    return color(this.tabBgColor).darken(0.03).hex();
   },
 
   // Icon
@@ -320,13 +315,13 @@ export default {
       topInset: 24,
       leftInset: 0,
       rightInset: 0,
-      bottomInset: 34
+      bottomInset: 34,
     },
     landscape: {
       topInset: 0,
       leftInset: 44,
       rightInset: 44,
-      bottomInset: 21
-    }
-  }
+      bottomInset: 21,
+    },
+  },
 };

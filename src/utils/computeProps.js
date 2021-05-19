@@ -1,8 +1,8 @@
 'use_strict';
 import _ from 'lodash';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-module.exports = function(incomingProps, defaultProps) {
+module.exports = function (incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
 
@@ -22,7 +22,7 @@ module.exports = function(incomingProps, defaultProps) {
     let computedPropsStyle = {};
     computedProps.style = {};
     if (Array.isArray(incomingPropsStyle)) {
-      _.forEach(incomingPropsStyle, style => {
+      _.forEach(incomingPropsStyle, (style) => {
         if (typeof style === 'number') {
           _.merge(computedPropsStyle, StyleSheet.flatten(style));
         } else {

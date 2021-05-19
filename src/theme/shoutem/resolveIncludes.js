@@ -6,14 +6,15 @@ export const INCLUDE = '@@shoutem.theme/include';
  * Lodash merge/mergeWith functions doesn't merge symbols
  * and we use INCLUDE symbol to define which style we want to include.
  */
-// eslint-disable-next-line consistent-return
 function includeSymbolMergeHandler(objVal, srcVal) {
   const newObjVal = objVal;
   let include;
 
   if (srcVal && srcVal[INCLUDE]) {
-    include = newObjVal && newObjVal[INCLUDE] ?
-      [...newObjVal[INCLUDE], ...srcVal[INCLUDE]] : srcVal[INCLUDE];
+    include =
+      newObjVal && newObjVal[INCLUDE]
+        ? [...newObjVal[INCLUDE], ...srcVal[INCLUDE]]
+        : srcVal[INCLUDE];
   }
 
   // if objVal doesn't exists create new from source
@@ -72,9 +73,11 @@ export default function resolveIncludes(target, base = {}) {
     const baseStyle = base[styleName];
     if (baseStyle) {
       if (baseStyle[INCLUDE]) {
-        throw Error(`Base style cannot have includes, unexpected include in ${styleName}.`);
+        throw Error(
+          `Base style cannot have includes, unexpected include in ${styleName}.`,
+        );
       }
-      style = { ...baseStyle };
+      style = {...baseStyle};
     }
 
     const targetStyle = target[styleName];
@@ -120,18 +123,25 @@ export default function resolveIncludes(target, base = {}) {
           {},
           stylesToInclude,
           includeNodeStyles(getStyle(styleName), processingStyleNames),
-          includeSymbolMergeHandler
+          includeSymbolMergeHandler,
         );
         processingStyleNames.delete(styleName);
       }
     }
 
-    const resultingStyle = _.mergeWith({}, stylesToInclude, styleNode, includeSymbolMergeHandler);
+    const resultingStyle = _.mergeWith(
+      {},
+      stylesToInclude,
+      styleNode,
+      includeSymbolMergeHandler,
+    );
     delete resultingStyle[INCLUDE];
 
     for (const styleName of _.keys(resultingStyle)) {
-      resultingStyle[styleName] =
-        includeNodeStyles(resultingStyle[styleName], processingStyleNames);
+      resultingStyle[styleName] = includeNodeStyles(
+        resultingStyle[styleName],
+        processingStyleNames,
+      );
     }
     return resultingStyle;
   }

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { Switch as SwitchNB } from 'react-native';
+import React, {Component} from 'react';
+import {Switch as SwitchNB} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Switch extends Component {
   render() {
-    return <SwitchNB ref={c => (this._root = c)} {...this.props} />;
+    return <SwitchNB ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
 Switch.propTypes = {
-  ...Switch.propTypes
+  ...Switch.propTypes,
 };
 
 const StyledSwitch = connectStyle(
   'NativeBase.Switch',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Switch);
 
-export { StyledSwitch as Switch };
+export {StyledSwitch as Switch};

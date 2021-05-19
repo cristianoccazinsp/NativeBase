@@ -15,49 +15,48 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Zocial from 'react-native-vector-icons/Zocial';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-
 const ICON_MAP = {
-  'AntDesign': AntDesign,
-  'Entypo': Entypo,
-  'EvilIcons': EvilIcons,
-  'Feather': Feather,
-  'FontAwesome': FontAwesome,
-  'FontAwesome5': FontAwesome5,
-  'Fontisto': Fontisto,
-  'Foundation': Foundation,
-  'Ionicons': Ionicons,
-  'MaterialCommunityIcons': MaterialCommunityIcons,
-  'MaterialIcons': MaterialIcons,
-  'Octicons': Octicons,
-  'SimpleLineIcons': SimpleLineIcons,
-  'Zocial': Zocial
-}
+  AntDesign: AntDesign,
+  Entypo: Entypo,
+  EvilIcons: EvilIcons,
+  Feather: Feather,
+  FontAwesome: FontAwesome,
+  FontAwesome5: FontAwesome5,
+  Fontisto: Fontisto,
+  Foundation: Foundation,
+  Ionicons: Ionicons,
+  MaterialCommunityIcons: MaterialCommunityIcons,
+  MaterialIcons: MaterialIcons,
+  Octicons: Octicons,
+  SimpleLineIcons: SimpleLineIcons,
+  Zocial: Zocial,
+};
 
 const DEFAULT_ICON = Ionicons;
 
-
 class IconNB extends React.PureComponent {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   render() {
-    let iconType = this.props.type || (this.context.theme && this.context.theme['@@shoutem.theme/themeStyle'].variables
-    .iconFamily);
+    let iconType =
+      this.props.type ||
+      (this.context.theme &&
+        this.context.theme['@@shoutem.theme/themeStyle'].variables.iconFamily);
 
     const Icon = ICON_MAP[iconType] || DEFAULT_ICON;
     return <Icon {...this.props} />;
   }
 }
 
-
 const StyledIconNB = connectStyle(
   'NativeBase.IconNB',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(IconNB);
 
-export { StyledIconNB as IconNB };
+export {StyledIconNB as IconNB};

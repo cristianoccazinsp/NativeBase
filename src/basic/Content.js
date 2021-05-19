@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
-import { KeyboardAwareScrollView } from '@codler/react-native-keyboard-aware-scroll-view';
+import React, {Component} from 'react';
+import {SafeAreaView} from 'react-native';
+import {KeyboardAwareScrollView} from '@codler/react-native-keyboard-aware-scroll-view';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import getStyle from '../utils/getStyle';
 
 class Content extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   render() {
@@ -20,12 +20,12 @@ class Content extends Component {
       disableKBDismissScroll,
       keyboardShouldPersistTaps,
       padder,
-      style
+      style,
     } = this.props;
 
     const containerStyle = {
       flex: 1,
-      backgroundColor: getStyle(style).backgroundColor
+      backgroundColor: getStyle(style).backgroundColor,
     };
 
     const variables = this.context.theme
@@ -36,18 +36,17 @@ class Content extends Component {
       <SafeAreaView style={containerStyle}>
         <KeyboardAwareScrollView
           automaticallyAdjustContentInsets={false}
-          resetScrollToCoords={disableKBDismissScroll ? null : { x: 0, y: 0 }}
+          resetScrollToCoords={disableKBDismissScroll ? null : {x: 0, y: 0}}
           keyboardShouldPersistTaps={keyboardShouldPersistTaps || 'handled'}
-          ref={c => {
+          ref={(c) => {
             this._scrollview = c;
             this._root = c;
           }}
           {...this.props}
           contentContainerStyle={[
-            { padding: padder ? variables.contentPadding : undefined },
-            contentContainerStyle
-          ]}
-        >
+            {padding: padder ? variables.contentPadding : undefined},
+            contentContainerStyle,
+          ]}>
           {children}
         </KeyboardAwareScrollView>
       </SafeAreaView>
@@ -62,14 +61,14 @@ Content.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledContent = connectStyle(
   'NativeBase.Content',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Content);
 
-export { StyledContent as Content };
+export {StyledContent as Content};

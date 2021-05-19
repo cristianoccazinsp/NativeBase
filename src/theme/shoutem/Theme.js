@@ -1,11 +1,11 @@
-import { PropTypes } from "prop-types";
-import resolveIncludes from "./resolveIncludes";
-import mergeComponentAndThemeStyles from "./mergeComponentAndThemeStyles";
-import normalizeStyle from "./StyleNormalizer/normalizeStyle";
+import {PropTypes} from 'prop-types';
+import resolveIncludes from './resolveIncludes';
+import mergeComponentAndThemeStyles from './mergeComponentAndThemeStyles';
+import normalizeStyle from './StyleNormalizer/normalizeStyle';
 
 // Privates, ideally those should be symbols
-const THEME_STYLE = "@@shoutem.theme/themeStyle";
-const THEME_STYLE_CACHE = "@@shoutem.theme/themeCachedStyle";
+const THEME_STYLE = '@@shoutem.theme/themeStyle';
+const THEME_STYLE_CACHE = '@@shoutem.theme/themeCachedStyle';
 
 let defaultTheme;
 
@@ -79,7 +79,7 @@ export default class Theme {
 
     const componentIncludedStyle = resolveStyle(
       defaultStyle,
-      this[THEME_STYLE]
+      this[THEME_STYLE],
     );
 
     /**
@@ -90,7 +90,7 @@ export default class Theme {
     this[THEME_STYLE_CACHE][componentName] = mergeComponentAndThemeStyles(
       componentIncludedStyle,
       this[THEME_STYLE][componentName],
-      this[THEME_STYLE]
+      this[THEME_STYLE],
     );
 
     return this[THEME_STYLE_CACHE][componentName];
@@ -98,5 +98,5 @@ export default class Theme {
 }
 
 export const ThemeShape = PropTypes.shape({
-  createComponentStyle: PropTypes.func.isRequired
+  createComponentStyle: PropTypes.func.isRequired,
 });

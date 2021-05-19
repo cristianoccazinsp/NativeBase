@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Subtitle extends Component {
   render() {
-    return <Text ref={c => (this._root = c)} {...this.props} />;
+    return <Text ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -16,13 +16,13 @@ Subtitle.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledSubtitle = connectStyle(
   'NativeBase.Subtitle',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Subtitle);
-export { StyledSubtitle as Subtitle };
+export {StyledSubtitle as Subtitle};

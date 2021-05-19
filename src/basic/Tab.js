@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import {View, ViewPropTypes} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Tab extends Component {
   render() {
     return (
-      <View ref={c => (this._root = c)} {...this.props}>
+      <View ref={(c) => (this._root = c)} {...this.props}>
         {this.props.children}
       </View>
     );
@@ -20,10 +20,10 @@ Tab.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledTab = connectStyle('NativeBase.Tab', {}, mapPropsToStyleNames)(Tab);
 
-export { StyledTab as Tab };
+export {StyledTab as Tab};

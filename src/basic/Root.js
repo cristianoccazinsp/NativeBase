@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import React, {Component} from 'react';
+import {View, ViewPropTypes} from 'react-native';
 import PropTypes from 'prop-types';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-import { ToastContainer as Toast } from './ToastContainer';
-import { ActionSheetContainer as ActionSheet } from './Actionsheet';
-
+import {ToastContainer as Toast} from './ToastContainer';
+import {ActionSheetContainer as ActionSheet} from './Actionsheet';
 
 class Root extends Component {
   static getActionSheetInstance = () => {
@@ -39,17 +38,17 @@ class Root extends Component {
 
   static instances = [];
 
-  actionSheetRef = c => {
+  actionSheetRef = (c) => {
     this.actionSheet = c;
   };
 
-  toastRef = c => {
+  toastRef = (c) => {
     this.toast = c;
   };
 
   render() {
     return (
-      <View ref={c => (this._root = c)} {...this.props} style={{ flex: 1 }}>
+      <View ref={(c) => (this._root = c)} {...this.props} style={{flex: 1}}>
         {this.props.children}
         <Toast ref={this.toastRef} />
         <ActionSheet ref={this.actionSheetRef} />
@@ -63,12 +62,14 @@ Root.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
-const StyledRoot = connectStyle('NativeBase.Root', {}, mapPropsToStyleNames)(
-  Root
-);
+const StyledRoot = connectStyle(
+  'NativeBase.Root',
+  {},
+  mapPropsToStyleNames,
+)(Root);
 
-export { StyledRoot as Root };
+export {StyledRoot as Root};

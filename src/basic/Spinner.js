@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { ActivityIndicator } from 'react-native';
+import {ActivityIndicator} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Spinner extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
   render() {
     const variables = this.context.theme
@@ -16,7 +16,7 @@ class Spinner extends Component {
       : variable;
     return (
       <ActivityIndicator
-        ref={c => (this._root = c)}
+        ref={(c) => (this._root = c)}
         {...this.props}
         color={
           this.props.color
@@ -34,13 +34,13 @@ class Spinner extends Component {
 Spinner.propTypes = {
   ...ActivityIndicator.propTypes,
   color: PropTypes.string,
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
 };
 
 const StyledSpinner = connectStyle(
   'NativeBase.Spinner',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Spinner);
 
-export { StyledSpinner as Spinner };
+export {StyledSpinner as Spinner};

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import {View, ViewPropTypes} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class TabHeadingNB extends Component {
   render() {
-    return <View ref={c => (this._root = c)} {...this.props} />;
+    return <View ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -16,13 +16,13 @@ TabHeadingNB.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledTabHeadingNB = connectStyle(
   'NativeBase.TabHeading',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(TabHeadingNB);
-export { StyledTabHeadingNB as TabHeading };
+export {StyledTabHeadingNB as TabHeading};

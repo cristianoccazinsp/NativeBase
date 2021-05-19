@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text as RNText } from 'react-native';
+import {Text as RNText} from 'react-native';
 import _ from 'lodash';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Text extends React.PureComponent {
-
-  setRoot(c){
-    this._root = c
+  setRoot(c) {
+    this._root = c;
   }
 
   render() {
-    const { uppercase, children } = this.props;
+    const {uppercase, children} = this.props;
 
     let text;
     if (uppercase) {
-      text = React.Children.map(children, child => {
+      text = React.Children.map(children, (child) => {
         if (_.isString(child)) {
           return _.toUpper(child);
         }
@@ -41,16 +40,18 @@ Text.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 Text.defaultProps = {
-  uppercase: false
+  uppercase: false,
 };
 
-const StyledText = connectStyle('NativeBase.Text', {}, mapPropsToStyleNames)(
-  Text
-);
+const StyledText = connectStyle(
+  'NativeBase.Text',
+  {},
+  mapPropsToStyleNames,
+)(Text);
 
-export { StyledText as Text };
+export {StyledText as Text};

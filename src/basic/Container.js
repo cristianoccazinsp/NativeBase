@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import {View} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
-import { ViewPropTypes } from '../utils';
+import {connectStyle} from '../theme/shoutem';
+import {ViewPropTypes} from '../utils';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Container extends Component {
   render() {
     return (
-      <View ref={c => (this._root = c)} {...this.props}>
+      <View ref={(c) => (this._root = c)} {...this.props}>
         {this.props.children}
       </View>
     );
@@ -21,14 +21,14 @@ Container.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledContainer = connectStyle(
   'NativeBase.Container',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Container);
 
-export { StyledContainer as Container };
+export {StyledContainer as Container};

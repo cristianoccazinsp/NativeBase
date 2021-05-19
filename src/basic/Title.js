@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Title extends Component {
   render() {
     return (
-      <Text ref={c => (this._root = c)} numberOfLines={1} {...this.props} />
+      <Text ref={(c) => (this._root = c)} numberOfLines={1} {...this.props} />
     );
   }
 }
@@ -18,11 +18,13 @@ Title.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
-const StyledTitle = connectStyle('NativeBase.Title', {}, mapPropsToStyleNames)(
-  Title
-);
-export { StyledTitle as Title };
+const StyledTitle = connectStyle(
+  'NativeBase.Title',
+  {},
+  mapPropsToStyleNames,
+)(Title);
+export {StyledTitle as Title};

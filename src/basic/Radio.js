@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Platform } from 'react-native';
+import {TouchableOpacity, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 import computeProps from '../utils/computeProps';
 
 class Radio extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
   prepareRootProps() {
     const defaultProps = {
-      standardStyle: false
+      standardStyle: false,
     };
 
     return computeProps(this.props, defaultProps);
@@ -27,9 +27,8 @@ class Radio extends Component {
 
     return (
       <TouchableOpacity
-        ref={c => (this._root = c)}
-        {...this.prepareRootProps()}
-      >
+        ref={(c) => (this._root = c)}
+        {...this.prepareRootProps()}>
         {Platform.OS === 'ios' && !this.props.standardStyle ? (
           this.props.selected && (
             <Icon
@@ -39,7 +38,7 @@ class Radio extends Component {
                   : variables.radioColor,
                 lineHeight: 25,
                 height: 20,
-                fontSize: variables.radioBtnSize
+                fontSize: variables.radioBtnSize,
               }}
               name="ios-checkmark"
             />
@@ -64,7 +63,7 @@ class Radio extends Component {
                   ? this.props.color
                   : undefined,
               lineHeight: variables.radioBtnLineHeight,
-              fontSize: variables.radioBtnSize
+              fontSize: variables.radioBtnSize,
             }}
             name={
               Platform.OS === 'ios'
@@ -85,11 +84,13 @@ class Radio extends Component {
 Radio.propTypes = {
   ...TouchableOpacity.propTypes,
   selected: PropTypes.bool,
-  standardStyle: PropTypes.bool
+  standardStyle: PropTypes.bool,
 };
 
-const StyledRadio = connectStyle('NativeBase.Radio', {}, mapPropsToStyleNames)(
-  Radio
-);
+const StyledRadio = connectStyle(
+  'NativeBase.Radio',
+  {},
+  mapPropsToStyleNames,
+)(Radio);
 
-export { StyledRadio as Radio };
+export {StyledRadio as Radio};

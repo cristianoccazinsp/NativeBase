@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
-import { connectStyle } from '../../theme/shoutem';
+import {connectStyle} from '../../theme/shoutem';
 import mapPropsToStyleNames from '../../utils/mapPropsToStyleNames';
-import { IconNB } from '../IconNB';
+import {IconNB} from '../IconNB';
 
 import ic from './NBIcons.json';
-
 
 const IS_IOS = Platform.OS === 'ios';
 
 function getName(props) {
-
   if (!props.type) {
     if (typeof ic[props.name] !== 'object') {
       return props.name;
@@ -34,24 +32,13 @@ function getName(props) {
 }
 
 class Icon extends React.PureComponent {
-
   render() {
     let {ios, android} = this.props;
 
     if (ios && android) {
-      return (
-        <IconNB
-          {...this.props}
-          name={IS_IOS ? ios : android}
-        />
-      );
+      return <IconNB {...this.props} name={IS_IOS ? ios : android} />;
     }
-    return (
-      <IconNB
-        {...this.props}
-        name={getName(this.props)}
-      />
-    );
+    return <IconNB {...this.props} name={getName(this.props)} />;
   }
 }
 
@@ -60,17 +47,19 @@ Icon.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   name: PropTypes.string,
   ios: PropTypes.string,
   android: PropTypes.string,
   active: PropTypes.bool,
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 
-const StyledIcon = connectStyle('NativeBase.Icon', {}, mapPropsToStyleNames)(
-  Icon
-);
+const StyledIcon = connectStyle(
+  'NativeBase.Icon',
+  {},
+  mapPropsToStyleNames,
+)(Icon);
 
-export { StyledIcon as Icon };
+export {StyledIcon as Icon};

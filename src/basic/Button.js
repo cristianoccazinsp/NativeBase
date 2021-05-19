@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -6,26 +5,24 @@ import {
   Platform,
   View,
   TouchableNativeFeedback,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import variable from '../theme/variables/platform';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
-import { Text } from './Text';
-
+import {Text} from './Text';
 
 const IS_IOS = Platform.OS === 'ios';
-const IS_WEB = Platform.OS == 'web';
-
+const IS_WEB = Platform.OS === 'web';
 
 class Button extends React.PureComponent {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
-  setRoot(c){
+  setRoot(c) {
     this._root = c;
   }
 
@@ -38,20 +35,20 @@ class Button extends React.PureComponent {
         borderRadius:
           this.props.rounded && this.props.bordered
             ? variable.borderRadiusLarge
-            : variable.buttonDefaultBorderRadius
-      }
+            : variable.buttonDefaultBorderRadius,
+      },
     };
   }
 
   prepareRootProps() {
-
     const {style, ...others} = this.props;
 
     return {
-      style: StyleSheet.flatten(StyleSheet.compose(this.getInitialStyle().borderedBtn, style)),
-      ...others
-    }
-
+      style: StyleSheet.flatten(
+        StyleSheet.compose(this.getInitialStyle().borderedBtn, style),
+      ),
+      ...others,
+    };
   }
 
   render() {
@@ -62,13 +59,13 @@ class Button extends React.PureComponent {
     const children =
       IS_IOS || !variables.buttonUppercaseAndroidText
         ? this.props.children
-        : React.Children.map(this.props.children, child =>
+        : React.Children.map(this.props.children, (child) =>
             child && child.type === Text
               ? React.cloneElement(child, {
-                uppercase: true,
-                ...child.props
-              })
-              : child
+                  uppercase: true,
+                  ...child.props,
+                })
+              : child,
           );
 
     const rootProps = this.prepareRootProps();
@@ -87,14 +84,13 @@ class Button extends React.PureComponent {
             this.props.activeOpacity > 0
               ? this.props.activeOpacity
               : variable.buttonDefaultActiveOpacity
-          }
-        >
+          }>
           {children}
         </TouchableOpacity>
       );
     }
     if (this.props.rounded) {
-      const buttonStyle = { ...rootProps.style };
+      const buttonStyle = {...rootProps.style};
       const buttonFlex =
         this.props.full || this.props.block
           ? variable.buttonDefaultFlex
@@ -102,31 +98,27 @@ class Button extends React.PureComponent {
       return (
         <View
           style={[
-            { maxHeight: buttonStyle.height },
+            {maxHeight: buttonStyle.height},
             buttonStyle,
-            { paddingTop: undefined, paddingBottom: undefined }
-          ]}
-        >
+            {paddingTop: undefined, paddingBottom: undefined},
+          ]}>
           <TouchableNativeFeedback
             ref={this.setRoot}
             background={TouchableNativeFeedback.Ripple(
               this.props.androidRippleColor || variables.androidRippleColor,
-              true
+              true,
             )}
-            {...rootProps}
-          >
+            {...rootProps}>
             <View
               style={[
-                // eslint-disable-next-line no-use-before-define
                 styles.childContainer,
                 {
                   paddingTop: buttonStyle.paddingTop,
                   paddingBottom: buttonStyle.paddingBottom,
                   height: buttonStyle.height,
-                  flexGrow: buttonFlex
-                }
-              ]}
-            >
+                  flexGrow: buttonFlex,
+                },
+              ]}>
               {children}
             </View>
           </TouchableNativeFeedback>
@@ -142,11 +134,10 @@ class Button extends React.PureComponent {
             ? TouchableNativeFeedback.Ripple('transparent')
             : TouchableNativeFeedback.Ripple(
                 variables.androidRippleColor,
-                false
+                false,
               )
         }
-        {...rootProps}
-      >
+        {...rootProps}>
         <View {...rootProps}>{children}</View>
       </TouchableNativeFeedback>
     );
@@ -158,7 +149,7 @@ Button.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   block: PropTypes.bool,
   primary: PropTypes.bool,
@@ -172,7 +163,7 @@ Button.propTypes = {
   rounded: PropTypes.bool,
   large: PropTypes.bool,
   small: PropTypes.bool,
-  active: PropTypes.bool
+  active: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
@@ -180,13 +171,13 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 const StyledButton = connectStyle(
   'NativeBase.Button',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Button);
-export { StyledButton as Button };
+export {StyledButton as Button};

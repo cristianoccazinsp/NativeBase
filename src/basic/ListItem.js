@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   TouchableHighlight,
   Platform,
   TouchableNativeFeedback,
-  View
+  View,
 } from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
 class ListItem extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
   render() {
     const variables = this.context.theme
@@ -31,11 +31,10 @@ class ListItem extends Component {
         <TouchableHighlight
           onPress={this.props.onPress}
           onLongPress={this.props.onLongPress}
-          ref={c => (this._root = c)}
+          ref={(c) => (this._root = c)}
           underlayColor={variables.listBtnUnderlayColor}
           {...this.props}
-          style={this.props.touchableHighlightStyle}
-        >
+          style={this.props.touchableHighlightStyle}>
           <View {...this.props} testID={undefined}>
             {this.props.children}
           </View>
@@ -43,8 +42,8 @@ class ListItem extends Component {
       );
     }
     return (
-      <TouchableNativeFeedback ref={c => (this._root = c)} {...this.props}>
-        <View style={{ marginLeft: -17, paddingLeft: 17 }}>
+      <TouchableNativeFeedback ref={(c) => (this._root = c)} {...this.props}>
+        <View style={{marginLeft: -17, paddingLeft: 17}}>
           <View {...this.props} testID={undefined}>
             {this.props.children}
           </View>
@@ -59,20 +58,20 @@ ListItem.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   touchableHighlightStyle: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.array
+    PropTypes.array,
   ]),
   itemDivider: PropTypes.bool,
-  button: PropTypes.bool
+  button: PropTypes.bool,
 };
 
 const StyledListItem = connectStyle(
   'NativeBase.ListItem',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(ListItem);
 
-export { StyledListItem as ListItem };
+export {StyledListItem as ListItem};

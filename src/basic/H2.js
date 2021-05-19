@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class H2 extends Component {
   render() {
-    return <Text ref={c => (this._root = c)} {...this.props} />;
+    return <Text ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
-const childrenType = function(props, propName, component) {
+const childrenType = function (props, propName, component) {
   let error;
   const prop = props[propName];
-  React.Children.forEach(prop, child => {
+  React.Children.forEach(prop, (child) => {
     if (typeof child !== 'string' && typeof child !== 'number') {
       error = new Error(`${component} should have only string or number`);
     }
@@ -27,10 +27,10 @@ H2.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledH2 = connectStyle('NativeBase.H2', {}, mapPropsToStyleNames)(H2);
 
-export { StyledH2 as H2 };
+export {StyledH2 as H2};

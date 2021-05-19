@@ -1,41 +1,41 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import IconNB from 'react-native-vector-icons/Ionicons';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
-import { PLATFORM } from '../theme/variables/commonColor';
+import {PLATFORM} from '../theme/variables/commonColor';
 import computeProps from '../utils/computeProps';
 
 class CheckBox extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   getInitialStyle(variables) {
-    const { color, checked } = this.props;
+    const {color, checked} = this.props;
     return {
       checkStyle: {
         borderColor: color || variables.checkboxBgColor,
         backgroundColor:
           checked === true
             ? color || variables.checkboxBgColor
-            : variables.checkboxDefaultColor
-      }
+            : variables.checkboxDefaultColor,
+      },
     };
   }
 
   prepareRootProps(variables) {
     const defaultProps = {
-      style: this.getInitialStyle(variables).checkStyle
+      style: this.getInitialStyle(variables).checkStyle,
     };
 
     return computeProps(this.props, defaultProps);
   }
   render() {
-    const { checked } = this.props;
+    const {checked} = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
@@ -43,9 +43,8 @@ class CheckBox extends Component {
     const platform = variables.platform;
     return (
       <TouchableOpacity
-        ref={c => (this._root = c)}
-        {...this.prepareRootProps(variables)}
-      >
+        ref={(c) => (this._root = c)}
+        {...this.prepareRootProps(variables)}>
         <IconNB
           style={{
             color:
@@ -55,7 +54,7 @@ class CheckBox extends Component {
             fontSize: variables.CheckboxFontSize,
             lineHeight: variables.CheckboxIconSize,
             marginTop: variables.CheckboxIconMarginTop,
-            textShadowRadius: variables.checkboxTextShadowRadius
+            textShadowRadius: variables.checkboxTextShadowRadius,
           }}
           name={
             platform === PLATFORM.IOS && platformStyle !== PLATFORM.MATERIAL
@@ -73,16 +72,16 @@ CheckBox.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   checked: PropTypes.bool,
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
 };
 
 const StyledCheckBox = connectStyle(
   'NativeBase.CheckBox',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(CheckBox);
 
-export { StyledCheckBox as CheckBox };
+export {StyledCheckBox as CheckBox};

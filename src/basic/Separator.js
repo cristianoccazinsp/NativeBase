@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import {View, ViewPropTypes} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class Separator extends Component {
   render() {
-    return <View ref={c => (this._root = c)} {...this.props} />;
+    return <View ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -16,14 +16,14 @@ Separator.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledSeparator = connectStyle(
   'NativeBase.Separator',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(Separator);
 
-export { StyledSeparator as Separator };
+export {StyledSeparator as Separator};

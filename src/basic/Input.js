@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextInput } from 'react-native';
+import {TextInput} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 import variable from '../theme/variables/platform';
 
-
 class Input extends React.Component {
   static contextTypes = {
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   render() {
@@ -18,7 +17,7 @@ class Input extends React.Component {
       : variable;
     return (
       <TextInput
-        ref={c => {
+        ref={(c) => {
           this._textInput = c;
           this._root = c;
         }}
@@ -40,12 +39,14 @@ Input.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
-const StyledInput = connectStyle('NativeBase.Input', {}, mapPropsToStyleNames)(
-  Input
-);
+const StyledInput = connectStyle(
+  'NativeBase.Input',
+  {},
+  mapPropsToStyleNames,
+)(Input);
 
-export { StyledInput as Input };
+export {StyledInput as Input};

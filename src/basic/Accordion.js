@@ -1,18 +1,16 @@
-/* eslint-disable react/no-multi-comp */
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import {
   Animated,
   TouchableWithoutFeedback,
   FlatList,
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 
 import variable from '../theme/variables/platform';
 
-import { Text } from './Text';
-import { Icon } from './Icon';
+import {Text} from './Text';
+import {Icon} from './Icon';
 
 class DefaultHeader extends React.Component {
   render() {
@@ -23,7 +21,7 @@ class DefaultHeader extends React.Component {
       headerStyle,
       icon,
       iconStyle,
-      title
+      title,
     } = this.props;
 
     const variables = this.context.theme
@@ -33,22 +31,20 @@ class DefaultHeader extends React.Component {
     return (
       <View
         style={[
-          // eslint-disable-next-line no-use-before-define
           styles.defaultHeader,
-          headerStyle || { backgroundColor: variables.headerStyle }
-        ]}
-      >
+          headerStyle || {backgroundColor: variables.headerStyle},
+        ]}>
         <Text> {title}</Text>
         <Icon
           style={[
-            { fontSize: variables.accordionIconFontSize },
+            {fontSize: variables.accordionIconFontSize},
             expanded
               ? expandedIcon && expandedIconStyle
                 ? expandedIconStyle
-                : { color: variables.expandedIconStyle }
+                : {color: variables.expandedIconStyle}
               : icon && iconStyle
               ? iconStyle
-              : { color: variables.iconStyle }
+              : {color: variables.iconStyle},
           ]}
           name={
             expanded ? expandedIcon || 'ios-arrow-up' : icon || 'ios-arrow-down'
@@ -61,17 +57,16 @@ class DefaultHeader extends React.Component {
 
 class DefaultContent extends React.Component {
   render() {
-    const { content, contentStyle } = this.props;
+    const {content, contentStyle} = this.props;
     const variables = this.context.theme
       ? this.context.theme['@@shoutem.theme/themeStyle'].variables
       : variable;
     return (
       <Text
         style={[
-          { padding: variable.accordionContentPadding },
-          contentStyle || { backgroundColor: variables.contentStyle }
-        ]}
-      >
+          {padding: variable.accordionContentPadding},
+          contentStyle || {backgroundColor: variables.contentStyle},
+        ]}>
         {content}
       </Text>
     );
@@ -80,20 +75,20 @@ class DefaultContent extends React.Component {
 
 class AccordionSubItem extends React.Component {
   state = {
-    fadeAnim: new Animated.Value(0.3)
+    fadeAnim: new Animated.Value(0.3),
   };
   componentDidMount() {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 500,
-      useNativeDriver: true
+      useNativeDriver: true,
     }).start();
   }
   render() {
-    const { children, style } = this.props;
-    const { fadeAnim } = this.state;
+    const {children, style} = this.props;
+    const {fadeAnim} = this.state;
     return (
-      <Animated.View style={{ ...style, opacity: fadeAnim }}>
+      <Animated.View style={{...style, opacity: fadeAnim}}>
         {children}
       </Animated.View>
     );
@@ -116,7 +111,7 @@ class AccordionItem extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
-      setSelected
+      setSelected,
     } = this.props;
 
     return (
@@ -126,8 +121,7 @@ class AccordionItem extends React.Component {
             onAccordionOpen && !expanded && onAccordionOpen(item, index);
             onAccordionClose && expanded && onAccordionClose(item, index);
             setSelected(index);
-          }}
-        >
+          }}>
           <View>
             {renderHeader ? (
               renderHeader(item, expanded)
@@ -165,15 +159,15 @@ export class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: props.expanded
+      selected: props.expanded,
     };
   }
 
   setSelected(index) {
     if (this.state.selected === index) {
-      this.setState({ selected: undefined });
+      this.setState({selected: undefined});
     } else {
-      this.setState({ selected: index });
+      this.setState({selected: index});
     }
   }
 
@@ -190,7 +184,7 @@ export class Accordion extends React.Component {
       onAccordionOpen,
       renderContent,
       renderHeader,
-      style
+      style,
     } = this.props;
 
     const variables = this.context.theme
@@ -203,12 +197,12 @@ export class Accordion extends React.Component {
         style={[
           {
             borderColor: variables.accordionBorderColor,
-            borderWidth: variables.borderWidth
+            borderWidth: variables.borderWidth,
           },
-          style
+          style,
         ]}
         keyExtractor={(item, index) => String(index)}
-        renderItem={({ item, index }) => (
+        renderItem={({item, index}) => (
           <AccordionItem
             key={String(index)}
             contentStyle={contentStyle}
@@ -224,7 +218,7 @@ export class Accordion extends React.Component {
             renderHeader={renderHeader}
             onAccordionOpen={onAccordionOpen}
             onAccordionClose={onAccordionClose}
-            setSelected={i => this.setSelected(i)}
+            setSelected={(i) => this.setSelected(i)}
           />
         )}
         {...this.props}
@@ -238,6 +232,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: variable.accordionContentPadding,
     justifyContent: 'space-between',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });

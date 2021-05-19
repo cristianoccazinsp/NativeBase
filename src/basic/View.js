@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import {View, ViewPropTypes} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class ViewNB extends Component {
   render() {
-    return <View ref={c => (this._root = c)} {...this.props} />;
+    return <View ref={(c) => (this._root = c)} {...this.props} />;
   }
 }
 
@@ -16,13 +16,13 @@ ViewNB.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
-  ])
+    PropTypes.array,
+  ]),
 };
 
 const StyledViewNB = connectStyle(
   'NativeBase.ViewNB',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(ViewNB);
-export { StyledViewNB as ViewNB };
+export {StyledViewNB as ViewNB};

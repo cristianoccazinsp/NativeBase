@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, View } from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 
-import { connectStyle } from '../theme/shoutem';
+import {connectStyle} from '../theme/shoutem';
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
 
 class CardItem extends Component {
@@ -10,16 +10,15 @@ class CardItem extends Component {
     if (this.props.button) {
       return (
         <TouchableOpacity
-          ref={c => (this._root = c)}
+          ref={(c) => (this._root = c)}
           activeOpacity={0.2}
-          {...this.props}
-        >
+          {...this.props}>
           {this.props.children}
         </TouchableOpacity>
       );
     }
     return (
-      <View ref={c => (this._root = c)} {...this.props}>
+      <View ref={(c) => (this._root = c)} {...this.props}>
         {this.props.children}
       </View>
     );
@@ -31,18 +30,18 @@ CardItem.propTypes = {
   style: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.number,
-    PropTypes.array
+    PropTypes.array,
   ]),
   header: PropTypes.bool,
   cardBody: PropTypes.bool,
   footer: PropTypes.bool,
-  button: PropTypes.bool
+  button: PropTypes.bool,
 };
 
 const StyledCardItem = connectStyle(
   'NativeBase.CardItem',
   {},
-  mapPropsToStyleNames
+  mapPropsToStyleNames,
 )(CardItem);
 
-export { StyledCardItem as CardItem };
+export {StyledCardItem as CardItem};
