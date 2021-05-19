@@ -7,7 +7,7 @@ Some components (e.g., HEADER, Footer, Content, Item) that they should not be us
 
 Will require an unlink + link call when icons are upgraded
 
-Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#internal"
+Current up to date branch: "native-base": "github:cristianoccazinsp/NativeBase#z-vendored"
 
 DatePicker removed, use https://github.com/react-native-community/datetimepicker
 
