@@ -76,6 +76,20 @@ function getConcreteStyle(style) {
   });
 }
 
+// polyfill this methid in case it is not availablle
+if (!Object.entries) {
+  Object.entries = function (obj) {
+    var ownProps = Object.keys(obj),
+      i = ownProps.length,
+      resArray = new Array(i); // preallocate the Array
+    while (i--) {
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+    }
+
+    return resArray;
+  };
+}
+
 /**
  * Resolves the final component style by using the theme style, if available and
  * merging it with the style provided directly through the style prop, and style
@@ -197,7 +211,9 @@ export default (
           themeCache[componentStyleName] = resolvedStyle;
         }
 
-        const concreteStyle = getConcreteStyle(_.merge({}, resolvedStyle));
+        const concreteStyle = getConcreteStyle(
+          Object.assign({}, resolvedStyle),
+        );
 
         if (_.isArray(style)) {
           return [concreteStyle, ...style];
@@ -211,16 +227,12 @@ export default (
       }
 
       getStyleNames(props) {
-        const styleNamesArr = _.map(props, (value, key) => {
+        let styleNamesArr = [];
+        for (const [key, value] of Object.entries(props)) {
           if (typeof value !== 'object' && value === true) {
-            return '.' + key;
-          } else {
-            return false;
+            styleNamesArr.push('.' + key);
           }
-        });
-        _.remove(styleNamesArr, (value, index) => {
-          return value === false;
-        });
+        }
 
         return styleNamesArr;
       }
@@ -322,15 +334,12 @@ export default (
       }
 
       getOrSetStylesInCache(context, props, styleNames, path) {
-        if (themeCache && themeCache[path.join('>')]) {
-          // console.log('**************');
-
-          return themeCache[path.join('>')];
+        const cacheKey = path.join('>');
+        if (themeCache && themeCache[cacheKey]) {
+          return themeCache[cacheKey];
         } else {
           const resolvedStyle = this.resolveStyle(context, props, styleNames);
-          if (Object.keys(themeCache).length < 10000) {
-            themeCache[path.join('>')] = resolvedStyle;
-          }
+          themeCache[cacheKey] = resolvedStyle;
           return resolvedStyle;
         }
       }

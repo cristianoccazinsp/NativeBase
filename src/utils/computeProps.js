@@ -6,14 +6,14 @@ module.exports = function (incomingProps, defaultProps) {
   // External props has a higher precedence
   let computedProps = {};
 
-  const clonedIncomingProps = _.clone(incomingProps);
+  const clonedIncomingProps = Object.assign({}, incomingProps);
   delete clonedIncomingProps.children;
 
   const incomingPropsStyle = incomingProps.style;
   delete clonedIncomingProps.style;
 
   if (incomingProps) {
-    _.assign(computedProps, defaultProps, incomingProps);
+    Object.assign(computedProps, defaultProps, incomingProps);
   } else {
     computedProps = defaultProps;
   }
@@ -24,9 +24,9 @@ module.exports = function (incomingProps, defaultProps) {
     if (Array.isArray(incomingPropsStyle)) {
       _.forEach(incomingPropsStyle, (style) => {
         if (typeof style === 'number') {
-          _.merge(computedPropsStyle, StyleSheet.flatten(style));
+          Object.assign(computedPropsStyle, StyleSheet.flatten(style));
         } else {
-          _.merge(computedPropsStyle, style);
+          Object.assign(computedPropsStyle, style);
         }
       });
     } else if (typeof incomingPropsStyle === 'number') {
@@ -35,7 +35,7 @@ module.exports = function (incomingProps, defaultProps) {
       computedPropsStyle = incomingPropsStyle;
     }
 
-    _.merge(computedProps.style, defaultProps.style, computedPropsStyle);
+    Object.assign(computedProps.style, defaultProps.style, computedPropsStyle);
   }
   return computedProps;
 };

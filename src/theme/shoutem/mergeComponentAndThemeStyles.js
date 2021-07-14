@@ -5,15 +5,19 @@ export default function mergeComponentAndThemeStyles(
   themeComponentStyle,
   themeStyle,
 ) {
-  const componentThemedStyle = _.merge({}, componentStyle, themeComponentStyle);
+  const componentThemedStyle = Object.assign(
+    {},
+    componentStyle,
+    themeComponentStyle,
+  );
 
   // Picking only required root theme style, used by component.
   // We do not want to merge whole theme to component style.
   const intersectedRootThemeStyle = _.pick(
     themeStyle,
-    _.keys(componentThemedStyle),
+    Object.keys(componentThemedStyle),
   );
 
   // Merging only common style, not all theme style with component style
-  return _.merge({}, intersectedRootThemeStyle, componentThemedStyle);
+  return Object.assign({}, intersectedRootThemeStyle, componentThemedStyle);
 }

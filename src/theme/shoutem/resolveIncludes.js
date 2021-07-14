@@ -137,7 +137,7 @@ export default function resolveIncludes(target, base = {}) {
     );
     delete resultingStyle[INCLUDE];
 
-    for (const styleName of _.keys(resultingStyle)) {
+    for (const styleName of Object.keys(resultingStyle)) {
       resultingStyle[styleName] = includeNodeStyles(
         resultingStyle[styleName],
         processingStyleNames,

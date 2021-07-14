@@ -100,16 +100,18 @@ export function resolveComponentStyle(
   // );
 
   let mergedStyle = customMerge(themeStyle, parentStyle[componentName]);
-  styleNames.forEach((sn, index) => {
-    mergedStyle = customMerge(mergedStyle, themeStyle[`${sn}`]);
-  });
+  let sn;
 
-  styleNames.forEach((sn, index) => {
+  for (sn of styleNames) {
+    mergedStyle = customMerge(mergedStyle, themeStyle[`${sn}`]);
+  }
+
+  for (sn of styleNames) {
     mergedStyle = customMerge(
       mergedStyle,
       parentStyle[`${componentName}${sn}`],
     );
-  });
+  }
 
   // Phase 2: merge the component styles, this step is performed by using the
   // style from phase 1, so that we are sure that the final style variants are
@@ -125,16 +127,16 @@ export function resolveComponentStyle(
 
   let resolvedStyle = customMerge(mergedStyle, parentStyle[componentName]);
 
-  styleNames.forEach((sn, index) => {
+  for (sn of styleNames) {
     resolvedStyle = customMerge(resolvedStyle, mergedStyle[`${sn}`]);
-  });
+  }
 
-  styleNames.forEach((sn, index) => {
+  for (sn of styleNames) {
     resolvedStyle = customMerge(
       resolvedStyle,
       parentStyle[`${componentName}${sn}`],
     );
-  });
+  }
 
   return resolvedStyle;
 }
